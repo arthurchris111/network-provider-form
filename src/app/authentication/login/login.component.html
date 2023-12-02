@@ -3,34 +3,26 @@
     <div class="card ">
       <div class="card-body">
         <form [formGroup]="login" (ngSubmit)="onSubmit()" class="p-2">
-          <!-- username -->
+          <!-- country -->
           <label for="text">Country</label>
           <div class="form-item mb-3">
             <input type="text" autocomplete="off" name="country" id="country" required class="form-control shadow-none"
               formControlName="country" placeholder="country">
             <div class="error" *ngIf="(login.get('country')?.invalid && submitted)">
               <small class="text-danger" *ngIf="login.get('country')?.errors?.['required'] ">
-                country name required
+                Country name required
               </small>
             </div>
           </div>
 
-          <!--form password -->
-          <label for="password">Password</label>
+          <!-- network provider -->
+          <label for="text">Network</label>
           <div class="form-item mb-3">
-            <input [type]="show?'text':'password'" id="password" name="password" autocomplete="off" required
-              class="form-control shadow-none " formControlName="password" placeholder="Password">
-            <span class="togglePassword float-end opacity-75">
-              <span class=" img-fluid" (click)="togglePassword()" aria-hidden="true" *ngIf="!show">
-                <img src="../../../../assets/images/hide.png" width="18" height="18" alt="">
-              </span>
-              <span class="view  img-fluid" (click)="togglePassword()" aria-hidden="true" *ngIf="show">
-                <img src="../../../../assets/images/view.png" width="18" height="18" alt="">
-              </span>
-            </span>
-            <div class="error" *ngIf="(login.get('password')?.invalid && submitted)">
-              <small class="text-danger" *ngIf="login.get('password')?.errors?.['required'] ">
-                Password required
+            <input type="text" autocomplete="off" name="network" id="network" required class="form-control shadow-none"
+              formControlName="network" placeholder="network">
+            <div class="error" *ngIf="(login.get('network')?.invalid && submitted)">
+              <small class="text-danger" *ngIf="login.get('network')?.errors?.['required'] ">
+                Country name required
               </small>
             </div>
           </div>

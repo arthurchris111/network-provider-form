@@ -11,30 +11,21 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   login!: FormGroup;
-  show: boolean = false;
   submitted: boolean = false;
   isFetching: boolean = false;
-  user: boolean = false;
-  password: any;
 
   constructor(private formBuilder: FormBuilder, private route: Router) {}
 
   buildLoginForm(): void {
     this.login = this.formBuilder.group({
-      username: ['', [Validators.required]],
+      country: ['', [Validators.required]],
       password: ['', [Validators.required]],
-      rememberMe: ['', [Validators.required]],
     });
   }
 
   ngOnInit(): void {
     this.login;
     this.buildLoginForm();
-    this.password = 'password';
-  }
-
-  togglePassword() {
-    this.show = !this.show;
   }
 
   onSubmit() {
