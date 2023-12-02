@@ -4,13 +4,13 @@
       <div class="card-body">
         <form [formGroup]="login" (ngSubmit)="onSubmit()" class="p-2">
           <!-- username -->
-          <label for="email">Username</label>
+          <label for="text">Country</label>
           <div class="form-item mb-3">
-            <input type="text" autocomplete="off" name="username" id="username" required
-              class="form-control shadow-none" formControlName="username" placeholder="username">
-            <div class="error" *ngIf="(login.get('username')?.invalid && submitted)">
-              <small class="text-danger" *ngIf="login.get('username')?.errors?.['required'] ">
-                username required
+            <input type="text" autocomplete="off" name="country" id="country" required class="form-control shadow-none"
+              formControlName="country" placeholder="country">
+            <div class="error" *ngIf="(login.get('country')?.invalid && submitted)">
+              <small class="text-danger" *ngIf="login.get('country')?.errors?.['required'] ">
+                country name required
               </small>
             </div>
           </div>
