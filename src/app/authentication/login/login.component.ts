@@ -28,6 +28,10 @@ export class LoginComponent {
     this.buildLoginForm();
   }
 
+  get formControl(): any {
+    return this.login.controls;
+  }
+
   onSubmit() {
     this.submitted = true;
     console.log(this.login.value);

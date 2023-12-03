@@ -1,35 +1,38 @@
 <div class="container">
-  <div class="row m-0 d-flex justify-content-center align-items-center">
-    <div class="card ">
-      <div class="card-body">
-        <form [formGroup]="login" (ngSubmit)="onSubmit()" class="p-2">
-          <!-- country -->
-          <label for="text">Country</label>
-          <div class="form-item mb-3">
-            <input type="text" autocomplete="off" name="country" id="country" required class="form-control shadow-none"
-              formControlName="country" placeholder="country">
-            <div class="error" *ngIf="(login.get('country')?.invalid && submitted)">
-              <small class="text-danger" *ngIf="login.get('country')?.errors?.['required'] ">
-                Country name required
-              </small>
+  <div class="row m-0 d-flex justify-content-center align-items-center vh-100">
+    <div class="col-lg-4">
+      <div class="card ">
+        <div class="card-body">
+          <form [formGroup]="login" (ngSubmit)="onSubmit()" class="p-2">
+            <!-- country -->
+            <label for="text">Country</label>
+            <div class="form-item mb-3">
+              <input type="text" autocomplete="off" name="country" id="country" required
+                [ngClass]="{'invalid-border':formControl.country?.errors && submitted, 'valid-border':formControl.country.valid}"
+                class="form-control shadow-none" formControlName="country" placeholder="country">
+              <div class="error" *ngIf="(login.get('country')?.invalid && submitted)">
+                <small class="text-danger" *ngIf="login.get('country')?.errors?.['required'] ">
+                  Country name required
+                </small>
+              </div>
             </div>
-          </div>
 
-          <!-- network provider -->
-          <label for="text">Network</label>
-          <div class="form-item mb-3">
-            <input type="text" autocomplete="off" name="network" id="network" required class="form-control shadow-none"
-              formControlName="network" placeholder="network">
-            <div class="error" *ngIf="(login.get('network')?.invalid && submitted)">
-              <small class="text-danger" *ngIf="login.get('network')?.errors?.['required'] ">
-                Country name required
-              </small>
+            <!-- network provider -->
+            <label for="text">Network</label>
+            <div class="form-item mb-3">
+              <input type="text" autocomplete="off" name="network" id="network" required
+                class="form-control shadow-none" formControlName="network" placeholder="network">
+              <div class="error" *ngIf="(login.get('network')?.invalid && submitted)">
+                <small class="text-danger" *ngIf="login.get('network')?.errors?.['required'] ">
+                  Country name required
+                </small>
+              </div>
             </div>
-          </div>
 
-          <!-- button -->
-          <button class="btn btn-primary w-100 shadow-none" type="submit">Log In</button>
-        </form>
+            <!-- button -->
+            <button class="btn btn-primary w-100 shadow-none" type="submit">Log In</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
