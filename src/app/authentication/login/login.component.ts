@@ -34,6 +34,9 @@ export class LoginComponent {
 
   onSubmit() {
     this.submitted = true;
+    if (this.login.value.invalid) {
+      return;
+    }
     console.log(this.login.value);
   }
 }
