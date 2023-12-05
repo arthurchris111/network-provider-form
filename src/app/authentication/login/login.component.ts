@@ -14,29 +14,39 @@ export class LoginComponent {
   submitted: boolean = false;
   isFetching: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private route: Router) {}
-
-  buildLoginForm(): void {
+  constructor(private formBuilder: FormBuilder, private route: Router) {
     this.login = this.formBuilder.group({
-      country: ['', [Validators.required]],
-      password: ['', [Validators.required]],
+      name: ['', Validators.required],
+      network: ['', Validators.required],
     });
   }
 
-  ngOnInit(): void {
-    this.login;
-    this.buildLoginForm();
-  }
+  // buildLoginForm(): void {
+  //   this.login = this.formBuilder.group({
+  //     country: ['', [Validators.required]],
+  //     password: ['', [Validators.required]],
+  //   });
+  // }
 
   get formControl(): any {
     return this.login.controls;
   }
 
   onSubmit() {
-    this.submitted = true;
-    if (this.login.value.invalid) {
-      return;
+    if (this.login.valid) {
+      const formData = {
+        name: this.login.value.name,
+        network: [
+          {
+            id: this.login.value.network.toLowerCase(),
+            name: this.login.value.network.toUpperCase(),
+          },
+        ],
+      };
+
+      console.log(formData);
+    } else {
+      console.log('==================>invalid');
     }
-    console.log(this.login.value);
   }
 }
