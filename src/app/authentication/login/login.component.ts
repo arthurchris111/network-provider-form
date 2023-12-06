@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormArray, FormBuilder } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -14,10 +14,12 @@ export class LoginComponent {
   submitted: boolean = false;
   isFetching: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private route: Router) {
+  constructor(private formBuilder: FormBuilder, private route: Router) {}
+
+  createForm() {
     this.login = this.formBuilder.group({
       name: ['', Validators.required],
-      network: ['', Validators.required],
+      network: this.formBuilder.array([]),
     });
   }
 
@@ -27,6 +29,22 @@ export class LoginComponent {
   //     password: ['', [Validators.required]],
   //   });
   // }
+
+  get networks() {
+    return this.login.get('networks') as FormArray;
+  }
+
+  addNetwork() {
+    this.networks.push(this.formBuilder.control('', Validators.required));
+  }
+
+  removeNetwork(index: number) {
+    this.networks.removeAt(index);
+  }
+
+  ngOnInit(): void {
+    this.createForm();
+  }
 
   get formControl(): any {
     return this.login.controls;
