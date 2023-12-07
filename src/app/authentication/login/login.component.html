@@ -8,7 +8,7 @@
             <div class="form-item mb-3">
               <label for="text" class="fw-bold">COUNTRY</label>
               <input type="text" autocomplete="off" id="name" name="name"
-                [ngClass]="{'invalid-border':formControl.email?.errors && submitted, 'valid-border':formControl.email.valid}"
+                [ngClass]="{'invalid-border':formControl.name?.errors && submitted, 'valid-border':formControl.name.valid}"
                 class="form-control form-text-field  shadow-none mt-1" formControlName="name" placeholder="">
               <div class="error" *ngIf="(login.get('name')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="login.get('name')?.errors?.['required'] ">Country name required
