@@ -10,25 +10,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  login!: FormGroup;
   submitted: boolean = false;
   isFetching: boolean = false;
+  login!: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private route: Router) {}
 
   createForm() {
     this.login = this.formBuilder.group({
       name: ['', Validators.required],
-      network: this.formBuilder.array([]),
+      networks: this.formBuilder.array([]),
     });
   }
-
-  // buildLoginForm(): void {
-  //   this.login = this.formBuilder.group({
-  //     country: ['', [Validators.required]],
-  //     password: ['', [Validators.required]],
-  //   });
-  // }
 
   get networks() {
     return this.login.get('networks') as FormArray;
@@ -51,13 +44,14 @@ export class LoginComponent {
   }
 
   onSubmit() {
+    this.submitted = true;
     if (this.login.valid) {
       const formData = {
         name: this.login.value.name,
         network: [
           {
-            id: this.login.value.network.toLowerCase(),
-            name: this.login.value.network.toUpperCase(),
+            id: this.login.value.networks,
+            name: this.login.value.networks,
           },
         ],
       };

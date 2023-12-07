@@ -6,8 +6,9 @@
           <form [formGroup]="login" (ngSubmit)="onSubmit()" class="p-2">
             <!-- country -->
             <div class="form-item mb-3">
-              <label for="text">Country</label>
+              <label for="text" class="fw-bold">COUNTRY</label>
               <input type="text" autocomplete="off" id="name" name="name"
+                [ngClass]="{'invalid-border':formControl.email?.errors && submitted, 'valid-border':formControl.email.valid}"
                 class="form-control form-text-field  shadow-none mt-1" formControlName="name" placeholder="">
               <div class="error" *ngIf="(login.get('name')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="login.get('name')?.errors?.['required'] ">Country name required
@@ -15,24 +16,29 @@
               </div>
             </div>
 
-            <label for="text">Network</label>
+            <!-- <label for="text">Network</label>
             <div class="form-item mb-3">
               <input type="text" autocomplete="off" name="network" id="network" required
-                class="form-control shadow-none mt-1" formControlName="network" placeholder="">
+                class="form-control shadow-none mt-1" formControlName="networks" placeholder="">
               <div class="error" *ngIf="(login.get('network')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="login.get('network')?.errors?.['required'] ">
                   Network name required
                 </small>
               </div>
-            </div>
+            </div> -->
 
             <!-- network provider -->
-            <div *ngFor="let network of networks.controls; let i = index" class="form-group">
-              <label for="text">Network</label>
+            <div *ngFor="let network of networks.controls; let i = index">
+              <label for="text">Network {{i + 1}}</label>
               <div class="form-item mb-3">
-                <input type="text" autocomplete="off" name="network" id="network" required
-                  class="form-control shadow-none mt-1" formControlName="network" placeholder="">
-                <img src="../../../assets/images/remove.png" (click)="removeNetwork(i)" class="removeNetwork" alt="">
+                <div class="d-flex">
+                  <input type="text" autocomplete="off" name="network" id="network" required
+                    class="form-control shadow-none mt-1" formControlName="networks" placeholder="">
+                  <div>
+                    <img src="../../../assets/images/remove.png" (click)="removeNetwork(i)" class="removeNetwork"
+                      alt="">
+                  </div>
+                </div>
                 <div class="error" *ngIf="(login.get('network')?.invalid && submitted)">
                   <small class="text-danger" *ngIf="login.get('network')?.errors?.['required'] ">
                     Network name required
@@ -42,7 +48,7 @@
             </div>
 
             <!-- button -->
-            <button (click)="addNetwork()" type=" button" class="btn btn-dark btn-sm">add network</button>
+            <button (click)="addNetwork()" type="button" class="btn btn-dark btn-sm">add network</button>
             <button class="btn btn-dark w-100 shadow-none mt-3" type="submit">Submit</button>
           </form>
         </div>
