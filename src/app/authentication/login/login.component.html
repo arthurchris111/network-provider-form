@@ -33,6 +33,7 @@
               <div class="form-item mb-3">
                 <div class="d-flex">
                   <input type="text" autocomplete="off" name="network" id="network" required
+                    [ngClass]="{'invalid-border':formControl.networks?.errors && submitted, 'valid-border':formControl.networks.valid}"
                     class="form-control shadow-none mt-1" formControlName="networks" placeholder="">
                   <div>
                     <img src="../../../assets/images/remove.png" (click)="removeNetwork(i)" class="removeNetwork"
