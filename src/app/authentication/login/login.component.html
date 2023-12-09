@@ -39,16 +39,11 @@
                         alt="">
                     </span>
                   </div>
-                  <div class="error" *ngIf="(login.get('network{{i}}')?.invalid && submitted)">
-                    <small class="text-danger" *ngIf="login.get('network{{i}}')?.errors?.['required'] ">
-                      Network name required
-                    </small>
-                  </div>
-                  <!-- <div class="error" *ngIf="login.get('networks.' + i)?.invalid && submitted">
+                  <div class="error" *ngIf="login.get('networks.' + i)?.invalid && submitted">
                     <small class="text-danger" *ngIf="login.get('networks.' + i)?.errors?.['required']">
                       Network name required
                     </small>
-                  </div> -->
+                  </div>
                 </div>
               </div>
             </div>
