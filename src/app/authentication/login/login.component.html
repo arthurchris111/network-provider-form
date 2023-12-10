@@ -15,7 +15,16 @@
               </div>
             </div>
 
-
+            <label for="text" class="fw-bold">Add Network 1</label>
+            <div class="form-item mb-3">
+              <input type="text" autocomplete="off" name="network" id="network" required
+                class="form-control shadow-none mt-1" formControlName="network" placeholder="">
+              <div class="error" *ngIf="(login.get('network')?.invalid && submitted)">
+                <small class="text-danger" *ngIf="login.get('network')?.errors?.['required'] ">
+                  Network name required
+                </small>
+              </div>
+            </div>
 
             <!-- network provider -->
             <div formArrayName="networks">
