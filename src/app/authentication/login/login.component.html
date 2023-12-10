@@ -15,6 +15,7 @@
               </div>
             </div>
 
+            <!-- add network -->
             <label for="text" class="fw-bold">Add Network 1</label>
             <div class="form-item mb-3">
               <input type="text" autocomplete="off" name="network" id="network" required
@@ -26,7 +27,7 @@
               </div>
             </div>
 
-            <!-- network provider -->
+            <!-- add network array -->
             <div formArrayName="networks">
               <div *ngFor="let network of networks.controls; let i = index">
                 <label for="network" class="fw-bold">Add Network {{2 + i}}</label>
@@ -50,7 +51,6 @@
 
             <!-- button -->
             <button (click)="addNetwork()" type="button" class="btn btn-dark btn-sm">add network</button>
-
             <button class="btn btn-dark w-100 shadow-none mt-3" type="submit">Submit</button>
           </form>
         </div>
