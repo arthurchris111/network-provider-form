@@ -20,10 +20,9 @@ export class LoginComponent {
   // Form Initialization
   createForm() {
     this.login = this.formBuilder.group({
-      name: new FormControl('', Validators.required),
-      network: new FormControl('', Validators.required),
+      name: ['', Validators.required],
+      network: ['', Validators.required],
       networks: this.formBuilder.array([]),
-      // networks: new FormControl([]),
     });
   }
 
