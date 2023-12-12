@@ -66,12 +66,6 @@ export class LoginComponent {
     this.networks.removeAt(index);
   }
 
-  // Validate a specific network control and return the error message if any
-  getNetworkErrorMessage(index: number): string {
-    const networkControl = this.networks.at(index);
-    return networkControl.hasError('required') ? 'Network is required' : '';
-  }
-
   // Form Submission
   onSubmit() {
     this.submitted = true;
