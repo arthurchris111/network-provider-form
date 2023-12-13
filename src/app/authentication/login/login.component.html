@@ -20,6 +20,7 @@
             <label for="text" class="fw-bold">Add Network 1</label>
             <div class="form-item mb-3">
               <input type="text" autocomplete="off" name="network" id="network" required
+                [ngClass]="{'invalid-border': formControl.network?.errors && submitted, 'valid-border': formControl.network.valid}"
                 class="form-control shadow-none mt-1" formControlName="network" placeholder="">
               <div class="error" *ngIf="(login.get('network')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="login.get('network')?.errors?.['required'] ">
