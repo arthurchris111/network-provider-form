@@ -8,7 +8,7 @@
             <div class="form-item mb-3">
               <label for="text" class="fw-bold">COUNTRY</label>
               <input type="text" autocomplete="off" id="name" name="name"
-                [ngClass]="{'invalid-border':formControl.email?.errors && submitted, 'valid-border':formControl.email.valid}"
+                [ngClass]="{'invalid-border': formControl.name?.errors && submitted, 'valid-border': formControl.name.valid}"
                 class="form-control form-text-field  shadow-none mt-1" formControlName="name" placeholder="">
               <div class="error" *ngIf="(login.get('name')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="login.get('name')?.errors?.['required'] ">Country name required
@@ -20,7 +20,6 @@
             <label for="text" class="fw-bold">Add Network 1</label>
             <div class="form-item mb-3">
               <input type="text" autocomplete="off" name="network" id="network" required
-                [ngClass]="{'invalid-border':formControl.email?.errors && submitted, 'valid-border':formControl.email.valid}"
                 class="form-control shadow-none mt-1" formControlName="network" placeholder="">
               <div class="error" *ngIf="(login.get('network')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="login.get('network')?.errors?.['required'] ">
@@ -36,7 +35,6 @@
                 <div class="form-item mb-3">
                   <div class="d-flex">
                     <input type="text" autocomplete="off" name="network" id="network" required
-                      [ngClass]="{'invalid-border':formControl.email?.errors && submitted, 'valid-border':formControl.email.valid}"
                       class="form-control shadow-none mt-1" formControlName="{{i}}" placeholder="">
                     <span>
                       <img src="../../../assets/images/remove.png" (click)="removeNetwork(i)" class="removeNetwork"
