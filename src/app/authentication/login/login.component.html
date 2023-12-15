@@ -8,6 +8,7 @@
             <div class="form-item mb-3">
               <label for="text" class="fw-bold">COUNTRY</label>
               <input type="text" autocomplete="off" id="name" name="name"
+                [ngClass]="{'invalid-border':formControl.name?.errors && submitted, 'valid-border':formControl.name.valid}"
                 class="form-control form-text-field  shadow-none mt-1" formControlName="name" placeholder="">
               <div class="error" *ngIf="(sampleForm.get('name')?.invalid && submitted)">
                 <small class="text-danger" *ngIf="sampleForm.get('name')?.errors?.['required'] ">Country name required
@@ -19,14 +20,14 @@
             <div formArrayName="networks" *ngFor="let item of networks.controls let i=index">
               <div [formGroupName]="i">
                 <div class="form-item mb-3">
+                  <label for="text" class="fw-bold">NETWORK {{i + 1}}</label>
                   <div class="d-flex">
                     <input type="text" autocomplete="off" name="name" id="name" required
-                      class="form-control shadow-none mt-1" formControlName="name" placeholder="Network">
-                    <span *ngIf="i>0">
-                      <!-- <img src="../../../assets/images/remove.png" (click)="removeNetwork(i)" class="removeNetwork"
-                        alt=""> -->
-                      <i class="fa fa-trash-o" aria-hidden="true"></i>
-
+                      [ngClass]="{'invalid-border':formControl.name?.errors && submitted, 'valid-border':formControl.name.valid}"
+                      class="form-control shadow-none mt-1" formControlName="name" placeholder="">
+                    <span *ngIf="i > 0">
+                      <img src="../../../assets/images/remove.png" (click)="removeNetwork(i)" class="removeNetwork"
+                        alt="">
                     </span>
                   </div>
                   <div class="error" *ngIf="networks.controls[i].get('name')?.invalid && submitted">
