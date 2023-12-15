@@ -3,55 +3,43 @@
     <div class="col-lg-5">
       <div class=" ">
         <div>
-          <form [formGroup]="login" (ngSubmit)="onSubmit()" class="p-2">
+          <form [formGroup]="sampleForm" (ngSubmit)="onSubmit()" class="p-2">
             <!-- country -->
             <div class="form-item mb-3">
               <label for="text" class="fw-bold">COUNTRY</label>
               <input type="text" autocomplete="off" id="name" name="name"
-                [ngClass]="{'invalid-border': formControl.name?.errors && submitted, 'valid-border': formControl.name.valid}"
                 class="form-control form-text-field  shadow-none mt-1" formControlName="name" placeholder="">
-              <div class="error" *ngIf="(login.get('name')?.invalid && submitted)">
-                <small class="text-danger" *ngIf="login.get('name')?.errors?.['required'] ">Country name required
+              <div class="error" *ngIf="(sampleForm.get('name')?.invalid && submitted)">
+                <small class="text-danger" *ngIf="sampleForm.get('name')?.errors?.['required'] ">Country name required
                 </small>
               </div>
             </div>
 
-            <!-- add network -->
-            <label for="text" class="fw-bold">Add Network 1</label>
-            <div class="form-item mb-3">
-              <input type="text" autocomplete="off" name="network" id="network" required
-                [ngClass]="{'invalid-border': formControl.network?.errors && submitted, 'valid-border': formControl.network.valid}"
-                class="form-control shadow-none mt-1" formControlName="network" placeholder="">
-              <div class="error" *ngIf="(login.get('network')?.invalid && submitted)">
-                <small class="text-danger" *ngIf="login.get('network')?.errors?.['required'] ">
-                  Network name required
-                </small>
-              </div>
-            </div>
 
-            <!-- add network array -->
-            <div formArrayName="networks">
-              <div *ngFor="let network of networks.controls; let i = index">
-                <label for="network" class="fw-bold">Add Network {{2 + i}}</label>
+            <div formArrayName="networks" *ngFor="let item of networks.controls let i=index">
+              <div [formGroupName]="i">
                 <div class="form-item mb-3">
                   <div class="d-flex">
-                    <input type="text" autocomplete="off" name="network" id="network" required
-                      class="form-control shadow-none mt-1" formControlName="{{i}}" placeholder="">
-                    <span>
-                      <img src="../../../assets/images/remove.png" (click)="removeNetwork(i)" class="removeNetwork"
-                        alt="">
+                    <input type="text" autocomplete="off" name="name" id="name" required
+                      class="form-control shadow-none mt-1" formControlName="name" placeholder="Network">
+                    <span *ngIf="i>0">
+                      <!-- <img src="../../../assets/images/remove.png" (click)="removeNetwork(i)" class="removeNetwork"
+                        alt=""> -->
+                      <i class="fa fa-trash-o" aria-hidden="true"></i>
+
                     </span>
                   </div>
-                  <div class="error" *ngIf="login.get('networks.' + i)?.invalid && submitted">
-                    <small class="text-danger" *ngIf="login.get('networks.' + i)?.errors?.['required']">
+                  <div class="error" *ngIf="networks.controls[i].get('name')?.invalid && submitted">
+                    <small class="text-danger" *ngIf="networks.controls[i].get('name')?.errors?.['required']">
                       Network name required
                     </small>
                   </div>
                 </div>
+
               </div>
             </div>
 
-            <!-- button -->
+
             <button (click)="addNetwork()" type="button" class="btn btn-dark btn-sm">add network</button>
             <button class="btn btn-dark w-100 shadow-none mt-3" type="submit">Submit</button>
           </form>

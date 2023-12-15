@@ -12,31 +12,31 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   submitted: boolean = false;
   isFetching: boolean = false;
-  login!: FormGroup;
+  sampleForm: FormGroup = new FormGroup({});
   submittedDataArray: any[] = [];
 
   constructor(private formBuilder: FormBuilder, private route: Router) {}
-
-  // Form Initialization
-  createForm() {
-    this.login = this.formBuilder.group({
-      name: ['', Validators.required],
-      network: ['', Validators.required],
-      networks: this.formBuilder.array([]),
-    });
-  }
 
   ngOnInit(): void {
     this.createForm();
   }
 
+  // Form Initialization
+  createForm() {
+    this.sampleForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      networks: this.formBuilder.array([]),
+    });
+    this.addNetwork();
+  }
+
   // Form Controls
   get networks() {
-    return this.login.get('networks') as FormArray;
+    return this.sampleForm.get('networks') as FormArray;
   }
 
   get formControl(): any {
-    return this.login.controls;
+    return this.sampleForm.controls;
   }
 
   // generate network ID
@@ -44,20 +44,14 @@ export class LoginComponent {
     return 'id_' + Math.random().toString(36).substring(2, 9);
   }
 
-  // Network Form Group Creation
-  createNetwork() {
-    return this.formBuilder.group({
-      networks: new FormControl('', Validators.required),
-      id: this.generateNetworkId(),
-      name: this.login.value.networks,
-    });
-  }
-
   // add network input field
   addNetwork() {
-    const newInput = this.formBuilder.control('', Validators.required);
-    this.networks.push(newInput);
-    // this.networks.push(this.createNetwork());
+    this.networks.push(
+      this.formBuilder.group({
+        id: [this.generateNetworkId()],
+        name: ['', Validators.required],
+      })
+    );
   }
 
   // remove network input field
@@ -68,19 +62,8 @@ export class LoginComponent {
   // Form Submission
   onSubmit() {
     this.submitted = true;
-    if (this.login.valid) {
-      const formData = {
-        name: this.login.value.name,
-        network: [
-          {
-            id: this.generateNetworkId(),
-            name: this.login.value.networks,
-          },
-        ],
-      };
-      this.submittedDataArray.push(formData);
-      console.log(formData);
-      console.log(this.submittedDataArray);
+    if (this.sampleForm.valid) {
+      console.log(this.sampleForm.value);
     } else {
       console.log('==================>invalid');
     }
