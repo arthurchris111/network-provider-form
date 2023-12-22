@@ -38,6 +38,8 @@ export class KycEditComponent {
       street_line_one: ['', Validators.required],
       street_line_two: ['', Validators.required],
       postal_code: ['', Validators.required],
+      selfie: ['', Validators.required],
+      photo_id_back: ['', Validators.required],
     });
   }
 
