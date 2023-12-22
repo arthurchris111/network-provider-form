@@ -14,6 +14,7 @@ import { FormBuilder } from '@angular/forms';
 export class KycEditComponent {
   submitted: boolean = false;
   kycEditForm!: FormGroup;
+  responses: any;
 
   constructor(
     private editKycService: EditKycService,
@@ -31,10 +32,8 @@ export class KycEditComponent {
     this.kycEditForm = this.formBuilder.group({
       first_name: ['', Validators.required],
       last_name: ['', Validators.required],
-      username: ['', Validators.required],
       email: ['', Validators.required],
       phone: ['', Validators.required],
-      date_joined: ['', Validators.required],
       bvn: ['', Validators.required],
       vnin: ['', Validators.required],
       date_of_birth: ['', Validators.required],
@@ -48,8 +47,6 @@ export class KycEditComponent {
       document_type: ['', Validators.required],
       document_number: ['', Validators.required],
       politically_exposed_person: [false, Validators.required],
-      accept_terms: [false, Validators.required],
-      accept_data_usage_policy: [false, Validators.required],
     });
 
     this.loadData();
@@ -62,9 +59,9 @@ export class KycEditComponent {
   loadData(): void {
     this.editKycService.getOne('40').subscribe(
       (data) => {
-        const responses = { ...data, ...data.user };
-        console.error(responses.data);
-        this.kycEditForm.patchValue(responses);
+        this.responses = { ...data, ...data.user };
+        console.error(this.responses.data);
+        this.kycEditForm.patchValue(this.responses);
       },
       (error) => {
         console.error('Error loading data:', error);
@@ -78,7 +75,7 @@ export class KycEditComponent {
     if (this.kycEditForm.valid) {
       const formData = this.kycEditForm.value;
 
-      const dataId = formData.id;
+      const dataId = this.responses.id;
 
       this.editKycService.putOne(dataId, formData).subscribe(
         (response) => {

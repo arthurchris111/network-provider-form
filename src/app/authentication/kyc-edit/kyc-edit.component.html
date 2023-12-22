@@ -23,14 +23,6 @@
 
         <div class="row">
           <div class="col-lg-6">
-            <label for="username" class="form-label">Username</label>
-            <div class="form-item mb-3">
-              <input type="text" autocomplete="off" id="username" name="username"
-                [ngClass]="{'invalid-border':formControl.username?.errors && submitted, 'valid-border':formControl.username.valid}"
-                class="form-control form-text-field shadow-none" formControlName="username" placeholder="">
-            </div>
-          </div>
-          <div class="col-lg-6">
             <label for="email" class="form-label">Email</label>
             <div class="form-item mb-3">
               <input type="text" autocomplete="off" id="email" name="email"
@@ -38,9 +30,6 @@
                 class="form-control form-text-field  shadow-none" formControlName="email" placeholder="">
             </div>
           </div>
-        </div>
-
-        <div class="row">
           <div class="col-lg-6">
             <label for="phone" class="form-label">Phone</label>
             <div class="form-item mb-3">
@@ -49,6 +38,10 @@
                 class="form-control form-text-field shadow-none" formControlName="phone" placeholder="">
             </div>
           </div>
+        </div>
+
+        <div class="row">
+
           <div class="col-lg-6">
             <label for="bvn" class="form-label">Bvn</label>
             <div class="form-item mb-3">
@@ -57,9 +50,6 @@
                 class="form-control form-text-field shadow-none" formControlName="bvn" placeholder="">
             </div>
           </div>
-        </div>
-
-        <div class="row">
           <div class="col-lg-6">
             <label for="vnin" class="form-label">Vnin</label>
             <div class="form-item mb-3">
@@ -68,6 +58,9 @@
                 class="form-control form-text-field  shadow-none" formControlName="vnin" placeholder="">
             </div>
           </div>
+        </div>
+
+        <div class="row">
           <div class="col-lg-6">
             <label for="date_of_birth" class="form-label">Date Of Birth</label>
             <div class="form-item mb-3">
@@ -76,9 +69,6 @@
                 class="form-control form-text-field shadow-none" formControlName="date_of_birth" placeholder="">
             </div>
           </div>
-        </div>
-
-        <div class="row">
           <div class="col-lg-6">
             <label for="country" class="form-label">Country</label>
             <div class="form-item mb-3">
@@ -87,6 +77,9 @@
                 class="form-control form-text-field  shadow-none" formControlName="country" placeholder="">
             </div>
           </div>
+        </div>
+
+        <div class="row">
           <div class="col-lg-6">
             <label for="state" class="form-label">State</label>
             <div class="form-item mb-3">
@@ -95,9 +88,6 @@
                 class="form-control form-text-field shadow-none" formControlName="state" placeholder="">
             </div>
           </div>
-        </div>
-
-        <div class="row">
           <div class="col-lg-6">
             <label for="street_line_one" class="form-label">Street Line One</label>
             <div class="form-item mb-3">
@@ -106,6 +96,9 @@
                 class="form-control form-text-field  shadow-none" formControlName="street_line_one" placeholder="">
             </div>
           </div>
+        </div>
+
+        <div class="row">
           <div class="col-lg-6">
             <label for="street_line_two" class="form-label">Street Line Two</label>
             <div class="form-item mb-3">
@@ -114,9 +107,6 @@
                 class="form-control form-text-field shadow-none" formControlName="street_line_two" placeholder="">
             </div>
           </div>
-        </div>
-
-        <div class="row">
           <div class="col-lg-6">
             <label for="postal_code" class="form-label">Postal Code</label>
             <div class="form-item mb-3">
@@ -125,6 +115,9 @@
                 class="form-control form-text-field  shadow-none" formControlName="postal_code" placeholder="">
             </div>
           </div>
+        </div>
+
+        <div class="row">
           <div class="col-lg-6">
             <label for="selfie" class="form-label">Selfie</label>
             <div class="form-item mb-3">
@@ -133,9 +126,6 @@
                 class="form-control form-text-field shadow-none" formControlName="selfie" placeholder="">
             </div>
           </div>
-        </div>
-
-        <div class="row">
           <div class="col-lg-6">
             <label for="photo_id_back" class="form-label">Photo ID Back</label>
             <div class="form-item mb-3">
@@ -144,6 +134,9 @@
                 class="form-control form-text-field  shadow-none" formControlName="photo_id_back" placeholder="">
             </div>
           </div>
+        </div>
+
+        <div class="row">
           <div class="col-lg-6">
             <label for="document_type" class="form-label">Document Type</label>
             <div class="form-item mb-3">
@@ -152,9 +145,6 @@
                 class="form-control form-text-field shadow-none" formControlName="document_type" placeholder="">
             </div>
           </div>
-        </div>
-
-        <div class="row">
           <div class="col-lg-6">
             <label for="document_number" class="form-label">Document Number</label>
             <div class="form-item mb-3">
@@ -169,18 +159,6 @@
           <input type="checkbox" id="politically_exposed_person" name="politically_exposed_person"
             formControlName="politically_exposed_person" value="politically_exposed_person">
           <label for="politically_exposed_person" class="ms-2">Politically Exposed Person </label>
-        </div>
-
-        <div class="form-item mb-2">
-          <input type="checkbox" id="accept_terms" name="accept_terms" value="accept_terms"
-            formControlName="accept_terms">
-          <label for="accept_terms" class="ms-2">Accept Terms</label>
-        </div>
-
-        <div class="form-item mb-2">
-          <input type="checkbox" id="accept_data_usage_policy" name="accept_data_usage_policy"
-            formControlName="accept_data_usage_policy" value="accept_data_usage_policy">
-          <label for="accept_data_usage_policy" class="ms-2">Accept Data Usage Policy Terms</label>
         </div>
 
         <button class="btn btn-dark w-100 shadow-none mt-3" type="">Submit</button>
