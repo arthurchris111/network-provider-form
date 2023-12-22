@@ -35,6 +35,7 @@ export class KycEditComponent {
       date_of_birth: ['', Validators.required],
       country: ['', Validators.required],
       state: ['', Validators.required],
+      street_line_one: ['', Validators.required],
     });
   }
 
