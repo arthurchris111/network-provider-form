@@ -12,7 +12,8 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./kyc-edit.component.scss'],
 })
 export class KycEditComponent {
-  kycEdit!: FormGroup;
+  submitted: boolean = false;
+  kycEditForm!: FormGroup;
 
   constructor(
     private editKycService: EditKycService,
@@ -27,7 +28,7 @@ export class KycEditComponent {
   }
 
   buildKycEditForm(): void {
-    this.kycEdit = this.formBuilder.group({
+    this.kycEditForm = this.formBuilder.group({
       first_name: ['', Validators.required],
       last_name: ['', Validators.required],
       username: ['', Validators.required],
@@ -46,11 +47,49 @@ export class KycEditComponent {
       photo_id_back: ['', Validators.required],
       document_type: ['', Validators.required],
       document_number: ['', Validators.required],
-      politically_exposed_person: ['', Validators.required],
-      accept_terms: ['', Validators.required],
-      accept_data_usage_policy: ['', Validators.required],
+      politically_exposed_person: [false, Validators.required],
+      accept_terms: [false, Validators.required],
+      accept_data_usage_policy: [false, Validators.required],
     });
+
+    this.loadData();
   }
 
-  onSubmit() {}
+  get formControl(): any {
+    return this.kycEditForm.controls;
+  }
+
+  loadData(): void {
+    this.editKycService.getOne('40').subscribe(
+      (data) => {
+        const responses = { ...data, ...data.user };
+        console.error(responses.data);
+        this.kycEditForm.patchValue(responses);
+      },
+      (error) => {
+        console.error('Error loading data:', error);
+      }
+    );
+  }
+
+  onSubmit() {
+    this.submitted = true;
+
+    if (this.kycEditForm.valid) {
+      const formData = this.kycEditForm.value;
+
+      const dataId = formData.id;
+
+      this.editKycService.putOne(dataId, formData).subscribe(
+        (response) => {
+          console.log('Data updated successfully:', response);
+        },
+        (error) => {
+          console.error('Error updating data:', error);
+        }
+      );
+    }
+
+    console.log(this.kycEditForm.value);
+  }
 }

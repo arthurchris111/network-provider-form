@@ -1,12 +1,13 @@
 <div class="container">
-  <div class="row m-0 d-flex justify-content-center align-items-center vh-100">
+  <div class="row my-5 d-flex justify-content-center align-items-center vh-100">
     <div class="col-lg-8">
-      <form [formGroup]="kycEdit" (ngSubmit)="onSubmit()" class="p-2">
+      <form [formGroup]="kycEditForm" (ngSubmit)="onSubmit()" class="p-2">
         <div class="row">
           <div class="col-lg-6">
             <label for="first_name" class="form-label">First Name</label>
             <div class="form-item mb-3">
               <input type="text" autocomplete="off" id="first_name" name="first_name"
+                [ngClass]="{'invalid-border':formControl.first_name?.errors && submitted, 'valid-border':formControl.first_name.valid}"
                 class="form-control form-text-field shadow-none" formControlName="first_name" placeholder="">
             </div>
           </div>
@@ -14,6 +15,7 @@
             <label for="last_name" class="form-label">Last Name</label>
             <div class="form-item mb-3">
               <input type="text" autocomplete="off" id="last_name" name="last_name"
+                [ngClass]="{'invalid-border':formControl.last_name?.errors && submitted, 'valid-border':formControl.last_name.valid}"
                 class="form-control form-text-field  shadow-none" formControlName="last_name" placeholder="">
             </div>
           </div>
@@ -24,6 +26,7 @@
             <label for="username" class="form-label">Username</label>
             <div class="form-item mb-3">
               <input type="text" autocomplete="off" id="username" name="username"
+                [ngClass]="{'invalid-border':formControl.username?.errors && submitted, 'valid-border':formControl.username.valid}"
                 class="form-control form-text-field shadow-none" formControlName="username" placeholder="">
             </div>
           </div>
@@ -31,6 +34,7 @@
             <label for="email" class="form-label">Email</label>
             <div class="form-item mb-3">
               <input type="text" autocomplete="off" id="email" name="email"
+                [ngClass]="{'invalid-border':formControl.email?.errors && submitted, 'valid-border':formControl.email.valid}"
                 class="form-control form-text-field  shadow-none" formControlName="email" placeholder="">
             </div>
           </div>
@@ -41,138 +45,142 @@
             <label for="phone" class="form-label">Phone</label>
             <div class="form-item mb-3">
               <input type="text" autocomplete="off" id="phone" name="phone"
+                [ngClass]="{'invalid-border':formControl.phone?.errors && submitted, 'valid-border':formControl.phone.valid}"
                 class="form-control form-text-field shadow-none" formControlName="phone" placeholder="">
             </div>
           </div>
           <div class="col-lg-6">
-            <label for="date_joined" class="form-label">Date Joined</label>
+            <label for="bvn" class="form-label">Bvn</label>
             <div class="form-item mb-3">
-              <input type="date" autocomplete="off" id="date_joined" name="date_joined"
-                class="form-control form-text-field  shadow-none" formControlName="date_joined" placeholder="">
+              <input type="number" autocomplete="off" id="bvn" name="bvn"
+                [ngClass]="{'invalid-border':formControl.bvn?.errors && submitted, 'valid-border':formControl.bvn.valid}"
+                class="form-control form-text-field shadow-none" formControlName="bvn" placeholder="">
             </div>
           </div>
         </div>
 
         <div class="row">
-          <div class="col-lg-6">
-            <label for="bvn" class="form-label">Bvn</label>
-            <div class="form-item mb-3">
-              <input type="number" autocomplete="off" id="bvn" name="bvn"
-                class="form-control form-text-field shadow-none" formControlName="bvn" placeholder="">
-            </div>
-          </div>
           <div class="col-lg-6">
             <label for="vnin" class="form-label">Vnin</label>
             <div class="form-item mb-3">
               <input type="number" autocomplete="off" id="vnin" name="vnin"
+                [ngClass]="{'invalid-border':formControl.vnin?.errors && submitted, 'valid-border':formControl.vnin.valid}"
                 class="form-control form-text-field  shadow-none" formControlName="vnin" placeholder="">
             </div>
           </div>
-        </div>
-
-        <div class="row">
           <div class="col-lg-6">
             <label for="date_of_birth" class="form-label">Date Of Birth</label>
             <div class="form-item mb-3">
               <input type="date" autocomplete="off" id="bvn" name="date_of_birth"
+                [ngClass]="{'invalid-border':formControl.date_of_birth?.errors && submitted, 'valid-border':formControl.date_of_birth.valid}"
                 class="form-control form-text-field shadow-none" formControlName="date_of_birth" placeholder="">
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <label for="country" class="form-label">Vnin</label>
-            <div class="form-item mb-3">
-              <input type="text" autocomplete="off" id="country" name="country"
-                class="form-control form-text-field  shadow-none" formControlName="country" placeholder="">
             </div>
           </div>
         </div>
 
         <div class="row">
+          <div class="col-lg-6">
+            <label for="country" class="form-label">Country</label>
+            <div class="form-item mb-3">
+              <input type="text" autocomplete="off" id="country" name="country"
+                [ngClass]="{'invalid-border':formControl.country?.errors && submitted, 'valid-border':formControl.country.valid}"
+                class="form-control form-text-field  shadow-none" formControlName="country" placeholder="">
+            </div>
+          </div>
           <div class="col-lg-6">
             <label for="state" class="form-label">State</label>
             <div class="form-item mb-3">
               <input type="text" autocomplete="off" id="bvn" name="state"
+                [ngClass]="{'invalid-border':formControl.state?.errors && submitted, 'valid-border':formControl.state.valid}"
                 class="form-control form-text-field shadow-none" formControlName="state" placeholder="">
             </div>
           </div>
+        </div>
+
+        <div class="row">
           <div class="col-lg-6">
             <label for="street_line_one" class="form-label">Street Line One</label>
             <div class="form-item mb-3">
               <input type="text" autocomplete="off" id="street_line_one" name="street_line_one"
+                [ngClass]="{'invalid-border':formControl.street_line_one?.errors && submitted, 'valid-border':formControl.street_line_one.valid}"
                 class="form-control form-text-field  shadow-none" formControlName="street_line_one" placeholder="">
             </div>
           </div>
-        </div>
-
-        <div class="row">
           <div class="col-lg-6">
             <label for="street_line_two" class="form-label">Street Line Two</label>
             <div class="form-item mb-3">
               <input type="text" autocomplete="off" id="street_line_two" name="street_line_two"
+                [ngClass]="{'invalid-border':formControl.street_line_two?.errors && submitted, 'valid-border':formControl.street_line_two.valid}"
                 class="form-control form-text-field shadow-none" formControlName="street_line_two" placeholder="">
             </div>
           </div>
+        </div>
+
+        <div class="row">
           <div class="col-lg-6">
             <label for="postal_code" class="form-label">Postal Code</label>
             <div class="form-item mb-3">
               <input type="text" autocomplete="off" id="postal_code" name="postal_code"
+                [ngClass]="{'invalid-border':formControl.postal_code?.errors && submitted, 'valid-border':formControl.postal_code.valid}"
                 class="form-control form-text-field  shadow-none" formControlName="postal_code" placeholder="">
             </div>
           </div>
-        </div>
-
-        <div class="row">
           <div class="col-lg-6">
             <label for="selfie" class="form-label">Selfie</label>
             <div class="form-item mb-3">
               <input type="text" autocomplete="off" id="selfie" name="selfie"
+                [ngClass]="{'invalid-border':formControl.selfie?.errors && submitted, 'valid-border':formControl.selfie.valid}"
                 class="form-control form-text-field shadow-none" formControlName="selfie" placeholder="">
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <label for="photo_id_back" class="form-label">Photo ID Back</label>
-            <div class="form-item mb-3">
-              <input type="text" autocomplete="off" id="photo_id_back" name="photo_id_back"
-                class="form-control form-text-field  shadow-none" formControlName="photo_id_back" placeholder="">
             </div>
           </div>
         </div>
 
         <div class="row">
           <div class="col-lg-6">
+            <label for="photo_id_back" class="form-label">Photo ID Back</label>
+            <div class="form-item mb-3">
+              <input type="text" autocomplete="off" id="photo_id_back" name="photo_id_back"
+                [ngClass]="{'invalid-border':formControl.photo_id_back?.errors && submitted, 'valid-border':formControl.photo_id_back.valid}"
+                class="form-control form-text-field  shadow-none" formControlName="photo_id_back" placeholder="">
+            </div>
+          </div>
+          <div class="col-lg-6">
             <label for="document_type" class="form-label">Document Type</label>
             <div class="form-item mb-3">
               <input type="text" autocomplete="off" id="document_type" name="document_type"
+                [ngClass]="{'invalid-border':formControl.document_type?.errors && submitted, 'valid-border':formControl.document_type.valid}"
                 class="form-control form-text-field shadow-none" formControlName="document_type" placeholder="">
             </div>
           </div>
+        </div>
+
+        <div class="row">
           <div class="col-lg-6">
             <label for="document_number" class="form-label">Document Number</label>
             <div class="form-item mb-3">
               <input type="number" autocomplete="off" id="photo_id_back" name="document_number"
+                [ngClass]="{'invalid-border':formControl.document_number?.errors && submitted, 'valid-border':formControl.document_number.valid}"
                 class="form-control form-text-field  shadow-none" formControlName="document_number" placeholder="">
             </div>
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-lg-6">
-            <input type="checkbox" id="politically_exposed_person" name="politically_exposed_person"
-              value="politically_exposed_person">
-            <label for="politically_exposed_person" class="ms-2">Politically Exposed Person </label>
-          </div>
-          <div class="col-lg-6">
-            <input type="checkbox" id="accept_terms" name="accept_terms" value="accept_terms">
-            <label for="accept_terms" class="ms-2">Accept Terms</label>
-          </div>
+        <div class="form-item mb-2">
+          <input type="checkbox" id="politically_exposed_person" name="politically_exposed_person"
+            formControlName="politically_exposed_person" value="politically_exposed_person">
+          <label for="politically_exposed_person" class="ms-2">Politically Exposed Person </label>
         </div>
 
-        <div class="row">
-          <div class="col-lg-6">
-            <input type="checkbox" id="accept_data_usage_policy" name="accept_data_usage_policy"
-              value="accept_data_usage_policy">
-            <label for="accept_data_usage_policy" class="ms-2">Accept Data Usage Policy Terms</label>
-          </div>
+        <div class="form-item mb-2">
+          <input type="checkbox" id="accept_terms" name="accept_terms" value="accept_terms"
+            formControlName="accept_terms">
+          <label for="accept_terms" class="ms-2">Accept Terms</label>
+        </div>
+
+        <div class="form-item mb-2">
+          <input type="checkbox" id="accept_data_usage_policy" name="accept_data_usage_policy"
+            formControlName="accept_data_usage_policy" value="accept_data_usage_policy">
+          <label for="accept_data_usage_policy" class="ms-2">Accept Data Usage Policy Terms</label>
         </div>
 
         <button class="btn btn-dark w-100 shadow-none mt-3" type="">Submit</button>
