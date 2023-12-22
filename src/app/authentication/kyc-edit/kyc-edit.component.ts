@@ -36,6 +36,8 @@ export class KycEditComponent {
       country: ['', Validators.required],
       state: ['', Validators.required],
       street_line_one: ['', Validators.required],
+      street_line_two: ['', Validators.required],
+      postal_code: ['', Validators.required],
     });
   }
 
