@@ -22,6 +22,10 @@ export class KycEditComponent {
     this.editKycService.getOne('40').subscribe();
   }
 
+  ngOnInit(): void {
+    this.buildKycEditForm();
+  }
+
   buildKycEditForm(): void {
     this.kycEdit = this.formBuilder.group({
       first_name: ['', Validators.required],

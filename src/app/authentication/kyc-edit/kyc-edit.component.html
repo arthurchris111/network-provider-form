@@ -4,17 +4,17 @@
       <form [formGroup]="kycEdit" (ngSubmit)="onSubmit()" class="p-2">
         <div class="row">
           <div class="col-lg-6">
-            <label for="firstName" class="form-label">First Name</label>
+            <label for="first_name" class="form-label">First Name</label>
             <div class="form-item mb-3">
-              <input type="text" autocomplete="off" id="firstname" name="firstName"
-                class="form-control form-text-field shadow-none" formControlName="firstName" placeholder="">
+              <input type="text" autocomplete="off" id="first_name" name="first_name"
+                class="form-control form-text-field shadow-none" formControlName="first_name" placeholder="">
             </div>
           </div>
           <div class="col-lg-6">
-            <label for="lastName" class="form-label">Last Name</label>
+            <label for="last_name" class="form-label">Last Name</label>
             <div class="form-item mb-3">
-              <input type="text" autocomplete="off" id="lastName" name="lastName"
-                class="form-control form-text-field  shadow-none" formControlName="lastName" placeholder="">
+              <input type="text" autocomplete="off" id="last_name" name="last_name"
+                class="form-control form-text-field  shadow-none" formControlName="last_name" placeholder="">
             </div>
           </div>
         </div>
@@ -174,11 +174,6 @@
             <label for="accept_data_usage_policy" class="ms-2">Accept Data Usage Policy Terms</label>
           </div>
         </div>
-
-
-
-
-
 
         <button class="btn btn-dark w-100 shadow-none mt-3" type="">Submit</button>
       </form>
