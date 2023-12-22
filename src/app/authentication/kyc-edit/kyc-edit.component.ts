@@ -42,6 +42,9 @@ export class KycEditComponent {
       photo_id_back: ['', Validators.required],
       document_type: ['', Validators.required],
       document_number: ['', Validators.required],
+      politically_exposed_person: ['', Validators.required],
+      accept_terms: ['', Validators.required],
+      accept_data_usage_policy: ['', Validators.required],
     });
   }
 
