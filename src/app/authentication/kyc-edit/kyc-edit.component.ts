@@ -40,6 +40,8 @@ export class KycEditComponent {
       postal_code: ['', Validators.required],
       selfie: ['', Validators.required],
       photo_id_back: ['', Validators.required],
+      document_type: ['', Validators.required],
+      document_number: ['', Validators.required],
     });
   }
 
