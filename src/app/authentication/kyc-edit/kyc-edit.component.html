@@ -1,0 +1,96 @@
+<div class="container">
+  <div class="row m-0 d-flex justify-content-center align-items-center vh-100">
+    <div class="col-lg-8">
+      <form [formGroup]="kycEdit" (ngSubmit)="onSubmit()" class="p-2">
+        <div class="row">
+          <div class="col-lg-6">
+            <label for="firstName" class="form-label">First Name</label>
+            <div class="form-item mb-3">
+              <input type="text" autocomplete="off" id="firstname" name="firstName"
+                class="form-control form-text-field shadow-none" formControlName="firstName" placeholder="">
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <label for="lastName" class="form-label">Last Name</label>
+            <div class="form-item mb-3">
+              <input type="text" autocomplete="off" id="lastName" name="lastName"
+                class="form-control form-text-field  shadow-none" formControlName="lastName" placeholder="">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <label for="username" class="form-label">Username</label>
+            <div class="form-item mb-3">
+              <input type="text" autocomplete="off" id="username" name="username"
+                class="form-control form-text-field shadow-none" formControlName="username" placeholder="">
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <label for="email" class="form-label">Email</label>
+            <div class="form-item mb-3">
+              <input type="text" autocomplete="off" id="email" name="email"
+                class="form-control form-text-field  shadow-none" formControlName="email" placeholder="">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <label for="phone" class="form-label">Phone</label>
+            <div class="form-item mb-3">
+              <input type="text" autocomplete="off" id="phone" name="phone"
+                class="form-control form-text-field shadow-none" formControlName="phone" placeholder="">
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <label for="date_joined" class="form-label">Date</label>
+            <div class="form-item mb-3">
+              <input type="date" autocomplete="off" id="date_joined" name="date_joined"
+                class="form-control form-text-field  shadow-none" formControlName="date_joined" placeholder="">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <label for="bvn" class="form-label">Bvn</label>
+            <div class="form-item mb-3">
+              <input type="number" autocomplete="off" id="bvn" name="bvn"
+                class="form-control form-text-field shadow-none" formControlName="bvn" placeholder="">
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <label for="vnin" class="form-label">Vnin</label>
+            <div class="form-item mb-3">
+              <input type="number" autocomplete="off" id="vnin" name="vnin"
+                class="form-control form-text-field  shadow-none" formControlName="vnin" placeholder="">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <label for="date_of_birth" class="form-label">Date of birth</label>
+            <div class="form-item mb-3">
+              <input type="date" autocomplete="off" id="bvn" name="date_of_birth"
+                class="form-control form-text-field shadow-none" formControlName="date_of_birth" placeholder="">
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <label for="country" class="form-label">Vnin</label>
+            <div class="form-item mb-3">
+              <input type="text" autocomplete="off" id="country" name="country"
+                class="form-control form-text-field  shadow-none" formControlName="country" placeholder="">
+            </div>
+          </div>
+        </div>
+
+
+
+        <button class="btn btn-dark w-100 shadow-none mt-3" type="">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
